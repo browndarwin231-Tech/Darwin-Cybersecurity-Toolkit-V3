@@ -1,0 +1,93 @@
+incidents = []
+
+while True:
+    print("\n=== Darwin Cybersecurity Toolkit V3 ===")
+    print("1. Password Checker")
+    print("2. IP Checker")
+    print("3. URL Checker")
+    print("4. Log Analyzer")
+    print("5. Threat Intelligence")
+    print("6. Incident Tracker")
+    print("7. File Extension Scanner")
+    print("8. Exit")
+
+    choice = input("Choose an option: ")
+
+    if choice == "1":
+        password = input("Enter password: ")
+
+        if len(password) < 8:
+            print("Weak Password")
+        else:
+            print("Strong Password")
+
+    elif choice == "2":
+        ip = input("Enter IP address: ")
+
+        if ip == "127.0.0.1":
+            print("Localhost")
+        elif ip.startswith("192.168.") or ip.startswith("10.") or ip.startswith("172."):
+            print("Private Network IP")
+        else:
+            print("Public IP Address")
+
+    elif choice == "3":
+        url = input("Enter URL: ")
+
+        if "bit.ly" in url or "tinyurl" in url:
+            print("Suspicious URL")
+        else:
+            print("URL Looks Safe")
+
+    elif choice == "4":
+        log = input("Enter log message: ")
+
+        if "failed" in log.lower():
+            print("Failed Login Detected")
+        else:
+            print("No Issues Found")
+
+    elif choice == "5":
+        threat = input("Enter threat type: ").lower()
+
+        if threat == "phishing":
+            print("Phishing: Attempts to steal sensitive information.")
+        elif threat == "malware":
+            print("Malware: Malicious software.")
+        elif threat == "ransomware":
+            print("Ransomware: Encrypts files and demands payment.")
+        elif threat == "trojan":
+            print("Trojan: Malware disguised as real software.")
+        else:
+            print("Threat not found.")
+
+    elif choice == "6":
+        incident = input("Enter incident: ")
+        incidents.append(incident)
+
+        print("\nRecorded Incidents:")
+        for item in incidents:
+            print("-", item)
+
+    elif choice == "7":
+        filename = input("Enter file name: ")
+
+        if filename.endswith(".exe"):
+            print("High Risk File")
+        elif filename.endswith(".bat"):
+            print("High Risk File")
+        elif filename.endswith(".scr"):
+            print("High Risk File")
+        elif filename.endswith(".zip"):
+            print("Compressed File")
+        else:
+            print("File Appears Safe")
+
+    elif choice == "8":
+        print("Goodbye")
+        break
+
+    else:
+        print("Invalid Choice")
+
+print("Created by Darwin Brown")
